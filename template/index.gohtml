@@ -1,6 +1,95 @@
 <!DOCTYPE html>
 <head>
+<style>
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+.box1 {
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+.box2 {
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+.box3 {
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+.box4 {
+    grid-column-start: 1;
+    grid-row-start: 4;
+}
+.box5 {
+    grid-column-start: 1;
+    grid-row-start: 5;
+}
+.box6 {
+    grid-column-start: 1;
+    grid-row-start: 6;
+}
+.box7 {
+    grid-column-start: 1;
+    grid-row-start: 7;
+}
+.box8 {
+    grid-column-start: 1;
+    grid-row-start: 8;
+}
+.east1 {
+    grid-column-start: 8;
+    grid-row-start: 1;
+}
+.east2 {
+    grid-column-start: 8;
+    grid-row-start: 2;
+}
+.east3 {
+    grid-column-start: 8;
+    grid-row-start: 3;
+}
+.east4 {
+    grid-column-start: 8;
+    grid-row-start: 4;
+}
+.east5 {
+    grid-column-start: 8;
+    grid-row-start: 5;
+}
+.east6 {
+    grid-column-start: 8;
+    grid-row-start: 6;
+}
+.east7 {
+    grid-column-start: 8;
+    grid-row-start: 7;
+}
+.east8 {
+    grid-column-start: 8;
+    grid-row-start: 8;
+}
+</style>
 </head>
 <body>
-<p>{{.City}} {{.Name}}</p>
+<div class="grid-wrapper">
+    <div class="box1">{{(index . 0).T1.City}} {{(index . 0).T1.Name}}</div>
+    <div class="box2">{{(index . 0).T2.City}} {{(index . 0).T2.Name}}</div>
+    <div class="box3">{{(index . 1).T1.City}} {{(index . 1).T1.Name}}</div>
+    <div class="box4">{{(index . 1).T2.City}} {{(index . 1).T2.Name}}</div>
+    <div class="box5">{{(index . 2).T1.City}} {{(index . 2).T1.Name}}</div>
+    <div class="box6">{{(index . 2).T2.City}} {{(index . 2).T2.Name}}</div>
+    <div class="box7">{{(index . 3).T1.City}} {{(index . 3).T1.Name}}</div>
+    <div class="box8">{{(index . 3).T2.City}} {{(index . 3).T2.Name}}</div>
+    
+    <div class="east1">{{(index . 4).T1.City}} {{(index . 4).T1.Name}}</div>
+    <div class="east2">{{(index . 4).T2.City}} {{(index . 4).T2.Name}}</div>
+    <div class="east3">{{(index . 5).T1.City}} {{(index . 5).T1.Name}}</div>
+    <div class="east4">{{(index . 5).T2.City}} {{(index . 5).T2.Name}}</div>
+    <div class="east5">{{(index . 6).T1.City}} {{(index . 6).T1.Name}}</div>
+    <div class="east6">{{(index . 6).T2.City}} {{(index . 6).T2.Name}}</div>
+    <div class="east7">{{(index . 7).T1.City}} {{(index . 7).T1.Name}}</div>
+    <div class="east8">{{(index . 7).T2.City}} {{(index . 7).T2.Name}}</div>
+</div>
 </body>
