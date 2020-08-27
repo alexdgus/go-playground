@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -8,12 +9,15 @@ import (
 
 type hotdog int
 
-func (h hotdog) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (h hotdog) ServeHTTP(w http.ResponseWriter, req *http.Request) {
+	req.ParseForm()
+	fmt.Println(req.Form)
+
 	t, err := template.ParseFiles("index.gohtml")
 	if err != nil {
 		log.Println(err)
 	}
-	err = t.ExecuteTemplate(w, "index.gohtml", nil)
+	err = t.ExecuteTemplate(w, "index.gohtml", req)
 }
 
 func main() {

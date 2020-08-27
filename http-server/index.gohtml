@@ -3,6 +3,12 @@
 <head>
 </head>
 <body>
+{{if .Form}}
+    {{if index .Form "n"}}
+        <p>Name: {{index .Form "n"}}</p>
+    {{end}}
+{{end}}
+
 <form action="/form-submission" method="post">
 <label for="name">Name:</label>
 <input type="text" id="name" name="n">
