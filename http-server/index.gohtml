@@ -3,15 +3,20 @@
 <head>
 </head>
 <body>
-{{if .Form}}
-    {{if index .Form "n"}}
-        <p>Name: {{index .Form "n"}}</p>
+{{if .}}
+    {{if .FirstName}}
+        <p>First Name: {{.FirstName}}</p>
+    {{end}}
+    {{if .LastName}}
+        <p>Last Name: {{.LastName}}</p>
     {{end}}
 {{end}}
 
 <form action="/form-submission" method="post">
-<label for="name">Name:</label>
-<input type="text" id="name" name="n">
+<label for="name">First Name:</label>
+<input type="text" id="fname" name="fn">
+<label for="name">Last Name:</label>
+<input type="text" id="lname" name="ln">
 <button type="submit">Submit</button>
 
 </form>
