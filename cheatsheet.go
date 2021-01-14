@@ -54,6 +54,51 @@ func main() {
 	dog.tail = true
 	dog.name = "Dog"
 
+	//Pointers
+	var cat animal
+	catPointer := &cat
+	catPointer.populateCat()
+	fmt.Printf("%+v\n", *catPointer)
+
+	var cat2 animal
+	//This works too. No need to convert to a pointer first
+	cat2.populateCat()
+	fmt.Printf("%+v\n", *catPointer)
+
+	colors := map[string]string {
+		"Red" : "#ff0000",
+		"Green" : "#00ff00",
+		"Blue" : "#0000ff",
+	}
+
+	printMap(colors)
+
+	var colorsv2 map[string]string
+	colorsv2 = make(map[string]string)
+	colorsv2["white"] = "#ffffff"
+
+	var intMapping = make(map[int]string)
+	intMapping[10] = "000000"
+
+	delete(colors, "Blue")
+	delete(intMapping, 10)
+
+	fmt.Println(colors)
+	fmt.Println(colorsv2)
+	fmt.Println(intMapping)
+
+	var myMap map[string]string
+	fmt.Println("myMap")
+	fmt.Println(myMap)
+	//myMap["newMapping"] = "A String"
+	//fmt.Println(myMap)
+
+	var mySlice []string
+	fmt.Println("mySlice")
+	fmt.Println(mySlice)
+	mySlice = append(mySlice, "A String")
+	fmt.Println(mySlice)
+
 	fmt.Println(card1)
 	fmt.Println(card2)
 	fmt.Println(card3)
@@ -70,4 +115,18 @@ func newCard() string {
 
 func newInt(x int) (int, int) {
 	return x, x + 1
+}
+
+func printMap(m map[string]string) {
+	for key, val := range m {
+		fmt.Println(key, val)
+	}
+}
+
+//Declares the receiver as a pointer so that the receiver
+//itself is modified and not copied by value
+func (a *animal)populateCat() {
+	a.legs = 4
+	a.tail = true
+	a.name = "Cat"
 }
